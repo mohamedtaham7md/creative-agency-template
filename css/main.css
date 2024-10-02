@@ -532,7 +532,7 @@ main .our-skills .skill-box .skill-progress span.display-progress::after {
   }
 
   main .about-us .container img {
-    width: 40%;
+    min-width: 40%;
   }
   main .about-us .container .text {
     flex-grow: 1;
