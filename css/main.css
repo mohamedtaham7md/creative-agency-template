@@ -518,6 +518,32 @@ main .our-skills .skill-box .skill-progress span.display-progress::after {
   opacity: 1;
 }
 
+/*Our gallery*/
+
+main .our-gallery {
+  padding: 3.125rem 0;
+  text-align: center;
+}
+
+main .our-gallery h2 {
+  margin-bottom: 2.5rem;
+}
+
+main .our-gallery .images-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main .our-gallery .images-container img {
+  width: calc(50% - 0.625rem);
+  aspect-ratio: 9 / 10;
+  padding: 0.063rem;
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  margin: 0.313rem;
+}
+
 @media (min-width: 576px) {
   .container {
     width: 560px;
@@ -687,6 +713,12 @@ main .our-skills .skill-box .skill-progress span.display-progress::after {
   main .our-skills .skill-box .skill-name {
     width: 15%;
   }
+
+  /*Our gallery*/
+  main .our-gallery .images-container img {
+    width: calc(100% / 3 - 0.625rem);
+    padding: 0.188rem;
+  }
 }
 
 @media (min-width: 992px) {
@@ -723,6 +755,11 @@ main .our-skills .skill-box .skill-progress span.display-progress::after {
     transform: translateX(-50%);
     position: relative;
     left: 50%;
+  }
+
+  /*Our gallery*/
+  main .our-gallery .images-container img {
+    width: calc(100% / 4 - 0.625rem);
   }
 }
 
