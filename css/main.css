@@ -1,6 +1,7 @@
 :root {
   --main-color: #f59723;
   --background-image: url("../assets/images/background-01.jpg");
+  --main-padding: 4.375rem;
 }
 *,
 *::before,
@@ -440,7 +441,7 @@ main .about-us p {
 /*our skills*/
 
 main .our-skills {
-  padding: 3.125rem 0;
+  padding: var(--main-padding) 0;
   background-color: #eee;
   text-align: center;
   text-transform: capitalize;
