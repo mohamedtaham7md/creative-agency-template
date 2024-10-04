@@ -521,7 +521,7 @@ main .our-skills .skill-box .skill-progress span.display-progress::after {
 /*Our gallery*/
 
 main .our-gallery {
-  padding: 3.125rem 0;
+  padding: var(--main-padding) 0;
   text-align: center;
 }
 
@@ -747,6 +747,11 @@ main .our-gallery .images-container img {
   main .about-us .about-us-text p {
     line-height: 1.6;
     font-size: 1.2rem;
+  }
+
+  /*about us*/
+  main .about-us .container img {
+    width: 40%;
   }
 
   /*our skills*/
