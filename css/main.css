@@ -544,6 +544,80 @@ main .our-gallery .images-container img {
   margin: 0.313rem;
 }
 
+/*Gallery popup*/
+
+#gallery-popup-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999999;
+}
+
+#gallery-popup-overlay.show {
+  display: block;
+}
+
+#popup-box {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f6f6f6;
+  border: 1px solid #ccc;
+  max-width: 90%;
+  padding: 20px 10px 5px 10px;
+  text-align: center;
+}
+
+#popup-box h3 {
+  text-transform: capitalize;
+  text-align: center;
+  margin-bottom: 20px;
+  color: var(--main-color);
+}
+
+#popup-box img {
+  max-width: 100%;
+  padding: 5px;
+  background-color: #fff;
+  background-clip: border-box;
+  user-select: none;
+}
+
+#popup-box span {
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+  color: #fff;
+  background-color: var(--main-color);
+  width: 2rem;
+  height: 2rem;
+  text-align: center;
+  align-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.5s, background-color 0.5s;
+  user-select: none;
+}
+
+#popup-box span:hover {
+  color: var(--main-color);
+  background-color: #fff;
+}
+
+@media (min-width: 410px) {
+  /*gallery popup box*/
+  #popup-box {
+    max-width: 63%;
+  }
+}
+
 @media (min-width: 576px) {
   .container {
     width: 560px;
@@ -566,6 +640,11 @@ main .our-gallery .images-container img {
   }
   main .our-skills .skill-box .skill-name {
     text-align: center;
+  }
+
+  /*gallery popup box*/
+  #popup-box {
+    max-width: 48%;
   }
 }
 
@@ -719,6 +798,11 @@ main .our-gallery .images-container img {
     width: calc(100% / 3 - 0.625rem);
     padding: 0.188rem;
   }
+
+  /*gallery popup box*/
+  #popup-box {
+    max-width: 35%;
+  }
 }
 
 @media (min-width: 992px) {
@@ -766,6 +850,11 @@ main .our-gallery .images-container img {
   main .our-gallery .images-container img {
     width: calc(100% / 4 - 0.625rem);
   }
+
+  /*gallery popup box*/
+  #popup-box {
+    max-width: 30%;
+  }
 }
 
 @media (min-width: 1200px) {
@@ -775,5 +864,9 @@ main .our-gallery .images-container img {
   main .about-us .about-us-text {
     width: 40%;
     padding-top: 7%;
+  }
+
+  #popup-box {
+    max-width: 25%;
   }
 }

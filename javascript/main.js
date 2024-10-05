@@ -262,6 +262,59 @@ function ourSkillsProgress() {
   }
 }
 
+//Gallery section popup
+const galleryImagesContainer = document.querySelector(
+  ".our-gallery .images-container"
+);
+
+function openPopup(event) {
+  if (event.target.matches("img")) {
+    //Add image src and alt to the popup img
+    const popupImage = document.querySelector("#popup-box img");
+    popupImage.src = event.target.src;
+    popupImage.alt = event.target.alt;
+
+    //Add title to the popup
+    const popupTitle = document.querySelector("#popup-box h3");
+    popupTitle.textContent = popupImage.alt;
+    //show popup
+    const galleryPopup = document.getElementById("gallery-popup-overlay");
+    galleryPopup.classList.add("show");
+
+    //close the popup
+
+    //close using close span
+    const closePopup = document.querySelector("#popup-box span");
+    closePopup.addEventListener("click", closePopupAction);
+    //close on keyup ESCAPE
+    document.addEventListener("keyup", onEscape);
+    //close when clicked outside the popup box
+    galleryPopup.addEventListener("click", closeOnClick);
+
+    function onEscape(event) {
+      if (event.key === "Escape") {
+        closePopupAction();
+      }
+    }
+    function closeOnClick(event) {
+      if (event.target === galleryPopup) {
+        closePopupAction();
+      }
+    }
+
+    function closePopupAction() {
+      galleryPopup.classList.remove("show");
+      popupImage.src = "";
+      popupImage.alt = "";
+      document.removeEventListener("keyup", onEscape);
+      closePopup.removeEventListener("click", closePopupAction);
+      galleryPopup.removeEventListener("click", closeOnClick);
+    }
+  }
+}
+
+galleryImagesContainer.addEventListener("click", openPopup);
+
 //Throttle
 
 function throttle(func, limit) {
