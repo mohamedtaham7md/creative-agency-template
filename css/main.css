@@ -702,6 +702,68 @@ main .timeline-container .timeline-content p {
   font-size: 0.938rem;
 }
 
+main section.our-features {
+  padding: var(--main-padding) 0;
+  text-align: center;
+}
+
+main section.our-features h2 {
+  margin-bottom: 70px;
+}
+
+main section.our-features .features-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+main section.our-features .feature-box {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border: 1px dotted transparent;
+  border-radius: 3px;
+  padding: 10px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+main section.our-features .feature-box:hover {
+  background-color: #ddd;
+  border-color: var(--main-color);
+}
+
+main section.our-features .feature-box img {
+  max-width: 100%;
+  width: 30%;
+  object-fit: contain;
+}
+
+main section.our-features .feature-box .feature-description {
+  flex-grow: 1;
+  text-align: left;
+  position: relative;
+}
+
+main section.our-features .feature-box .feature-description::after {
+  content: "";
+  width: 2px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: -12px;
+  background-color: var(--main-color);
+}
+
+main section.our-features .feature-description h3 {
+  margin-bottom: 20px;
+}
+
+main section.our-features .feature-description p {
+  line-height: 1.2;
+  font-size: 0.9rem;
+  color: #585858;
+}
+
 @media (min-width: 410px) {
   /*gallery popup box*/
   #popup-box {
@@ -795,6 +857,19 @@ main .timeline-container .timeline-content p {
     left: auto;
     right: -1.25rem;
     border-color: transparent transparent transparent #fff;
+  }
+
+  /*features section*/
+
+  main section.our-features .features-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 30px 10px;
+    justify-content: space-between;
+  }
+
+  main section.our-features .feature-box {
+    width: calc(100% / 2 - 10px);
   }
 }
 
@@ -1004,6 +1079,12 @@ main .timeline-container .timeline-content p {
   /*gallery popup box*/
   #popup-box {
     max-width: 30%;
+  }
+
+  /*features section*/
+
+  main section.our-features .feature-box {
+    width: calc(100% / 3 - 10px);
   }
 }
 
