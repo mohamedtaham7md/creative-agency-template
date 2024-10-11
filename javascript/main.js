@@ -6,12 +6,15 @@ const throttledScrollSkills = throttle(ourSkillsProgress, 300);
 //moving setting Icon on scroll function throttle
 const settingIcon = document.getElementById("setting-icon");
 const throttledScrollSetting = throttle(settingFloatingRight, 300);
+//skills section scroll animation function throttle
+const throttledScrollTestimonials = throttle(testimonialsAnimation, 300);
 
 document.addEventListener("DOMContentLoaded", () => {
   loadUserSettings();
   screenSizeChanges();
   settingFloatingRight();
   window.addEventListener("scroll", throttledScrollSkills);
+  window.addEventListener("scroll", throttledScrollTestimonials);
 });
 const dropMenu = document.querySelector("header .dropdown-icon");
 function screenSizeChanges() {
@@ -314,6 +317,22 @@ function openPopup(event) {
 }
 
 galleryImagesContainer.addEventListener("click", openPopup);
+
+//Animate testimonials section
+
+function testimonialsAnimation() {
+  const testimonialsEl = document.querySelector("section.testimonials");
+  const elementPos = testimonialsEl.getBoundingClientRect();
+  const quarterHeight = elementPos.height * 0.25;
+  if (
+    elementPos.top + quarterHeight < window.innerHeight &&
+    elementPos.bottom > quarterHeight
+  ) {
+    testimonialsEl.classList.add("active");
+  } else {
+    testimonialsEl.classList.remove("active");
+  }
+}
 
 //Throttle
 
