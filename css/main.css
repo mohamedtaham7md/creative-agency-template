@@ -206,8 +206,9 @@ a {
   opacity: 1;
 }
 
-/* do background setting media quires*/
-/*background-setting*/
+#section-navigation {
+  display: none;
+}
 
 .container {
   padding-left: 1rem;
@@ -784,12 +785,12 @@ main section.testimonials::after {
 
 main section.testimonials::before {
   left: 0;
-  background-color: #333;
+  background-color: var(--main-color);
 }
 
 main section.testimonials::after {
   right: 0;
-  background-color: var(--main-color);
+  background-color: #333;
 }
 main section.testimonials.active::before {
   transform: skewY(6deg) rotateY(28deg);
@@ -1128,6 +1129,62 @@ main section.testimonials .testimonials-box .person-info h3 {
 
   main section.testimonials .testimonials-container {
     flex-direction: row;
+  }
+  /*section-navigation*/
+  #section-navigation {
+    display: block;
+    position: fixed;
+    right: -5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    transition: right 0.5s;
+  }
+
+  #section-navigation.show {
+    right: 0.313rem;
+  }
+
+  #section-navigation .section {
+    position: relative;
+    width: 1.25rem;
+    height: 1.25rem;
+    border: 2px solid var(--main-color);
+    border-radius: 50%;
+    margin: 0.625rem 0;
+    cursor: pointer;
+    user-select: none;
+    transition: 0.5s;
+  }
+
+  #section-navigation .section .section-tooltip {
+    position: absolute;
+    width: 7.5rem;
+    right: 1.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+    background-color: var(--main-color);
+    text-align: center;
+    text-transform: capitalize;
+    padding: 0.063rem 0;
+    cursor: default;
+    pointer-events: none;
+    display: none;
+  }
+
+  #section-navigation .section .section-tooltip::before {
+    content: "";
+    position: absolute;
+    right: -1.25rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 0.625rem solid;
+    border-color: transparent transparent transparent var(--main-color);
+  }
+
+  #section-navigation .section:hover .section-tooltip {
+    display: block;
   }
 }
 
