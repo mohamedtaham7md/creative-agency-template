@@ -1,4 +1,5 @@
 const smallScreens = window.matchMedia("(max-width: 767px)");
+const largeScreens = window.matchMedia("(min-width: 767px)");
 userSettingKey = "user-settings";
 let userSetting = {};
 //skills section scroll animation function throttle
@@ -6,12 +7,15 @@ const throttledScrollSkills = throttle(ourSkillsProgress, 300);
 //moving setting Icon on scroll function throttle
 const settingIcon = document.getElementById("setting-icon");
 const throttledScrollSetting = throttle(settingFloatingRight, 300);
-//skills section scroll animation function throttle
+//testimonials section scroll animation function throttle
 const throttledScrollTestimonials = throttle(testimonialsAnimation, 300);
+//sections-navigations section scroll animation function throttle
+const throttledScrollNavigation = throttle(navigationVisibility, 300);
 
 document.addEventListener("DOMContentLoaded", () => {
   loadUserSettings();
   screenSizeChanges();
+  handleLargeScreens();
   settingFloatingRight();
   window.addEventListener("scroll", throttledScrollSkills);
   window.addEventListener("scroll", throttledScrollTestimonials);
@@ -29,7 +33,16 @@ function screenSizeChanges() {
   }
 }
 
+function handleLargeScreens() {
+  if (largeScreens.matches) {
+    window.addEventListener("scroll", throttledScrollNavigation);
+  } else {
+    window.removeEventListener("scroll", throttledScrollNavigation);
+  }
+}
+
 smallScreens.addEventListener("change", screenSizeChanges);
+largeScreens.addEventListener("change", handleLargeScreens);
 
 // small screens drop nav
 function handleDropMenu() {
@@ -331,6 +344,27 @@ function testimonialsAnimation() {
     testimonialsEl.classList.add("active");
   } else {
     testimonialsEl.classList.remove("active");
+  }
+}
+
+//sections navigation
+const sectionNavigation = document.getElementById("section-navigation");
+function navigateSections(event) {
+  if (event.target.classList.contains("section")) {
+    const clickedSection = event.target.dataset.section;
+    selectedSection = document.querySelector(clickedSection);
+    selectedSection.scrollIntoView({ behavior: "smooth" });
+  }
+}
+sectionNavigation.addEventListener("click", navigateSections);
+
+//Handle when section-navigation appears  viewport
+function navigationVisibility() {
+  const targetPosition = window.innerHeight;
+  if (window.scrollY > targetPosition) {
+    sectionNavigation.classList.add("show");
+  } else {
+    sectionNavigation.classList.remove("show");
   }
 }
 
