@@ -1,5 +1,6 @@
 const smallScreens = window.matchMedia("(max-width: 767px)");
 const largeScreens = window.matchMedia("(min-width: 767px)");
+const mainNav = document.getElementById("main-nav");
 userSettingKey = "user-settings";
 let userSetting = {};
 //skills section scroll animation function throttle
@@ -36,8 +37,10 @@ function screenSizeChanges() {
 function handleLargeScreens() {
   if (largeScreens.matches) {
     window.addEventListener("scroll", throttledScrollNavigation);
+    mainNav.addEventListener("click", navigateSections);
   } else {
     window.removeEventListener("scroll", throttledScrollNavigation);
+    mainNav.removeEventListener("click", navigateSections);
   }
 }
 
@@ -46,7 +49,6 @@ largeScreens.addEventListener("change", handleLargeScreens);
 
 // small screens drop nav
 function handleDropMenu() {
-  const mainNav = document.getElementById("main-nav");
   const closeNav = document.querySelector("#main-nav span");
   if (mainNav && closeNav) {
     mainNav.classList.add("visible");
@@ -169,7 +171,10 @@ function setSettings(event) {
       document.documentElement.style.setProperty("--main-color", newMainColor);
     }
   } //random background settings
-  else if (event.target instanceof HTMLButtonElement) {
+  else if (
+    event.target instanceof HTMLButtonElement &&
+    event.target.classList.contains("background")
+  ) {
     const currentActive = document.querySelector(
       "#setting-box .background-setting button.active"
     );
@@ -182,6 +187,24 @@ function setSettings(event) {
       } else if (event.target.classList.contains("background-setting-no")) {
         setRandomBackground(false);
         userSetting.randomBackground = false;
+      }
+    }
+  } else if (
+    event.target instanceof HTMLButtonElement &&
+    event.target.classList.contains("bullets")
+  ) {
+    const currentActive = document.querySelector(
+      "#setting-box .bullets-setting button.active"
+    );
+    if (event.target !== currentActive) {
+      currentActive.classList.remove("active");
+      event.target.classList.add("active");
+      if (event.target.classList.contains("bullets-setting-yes")) {
+        userSetting.navigationBullets = true;
+        navigationVisibility();
+      } else if (event.target.classList.contains("bullets-setting-no")) {
+        userSetting.navigationBullets = false;
+        navigationVisibility();
       }
     }
   }
@@ -252,6 +275,26 @@ function loadUserSettings() {
         "#setting-box .background-setting .background-setting-no"
       );
       randomBackgroundOption.classList.add("active");
+    }
+
+    //Load section navigation settings
+    let sectionNavigationSetting = true;
+    if (Object.hasOwn(userSettingObject, "navigationBullets")) {
+      sectionNavigationSetting = userSettingObject.navigationBullets;
+    }
+
+    if (sectionNavigationSetting) {
+      navigationVisibility();
+      const sectionNavigationOption = document.querySelector(
+        "#setting-box .bullets-setting .bullets-setting-yes"
+      );
+      sectionNavigationOption.classList.add("active");
+    } else {
+      navigationVisibility();
+      const sectionNavigationOption = document.querySelector(
+        "#setting-box .bullets-setting .bullets-setting-no"
+      );
+      sectionNavigationOption.classList.add("active");
     }
   } catch (error) {
     console.error(error.message);
@@ -351,6 +394,7 @@ function testimonialsAnimation() {
 const sectionNavigation = document.getElementById("section-navigation");
 function navigateSections(event) {
   if (event.target.classList.contains("section")) {
+    event.preventDefault();
     const clickedSection = event.target.dataset.section;
     selectedSection = document.querySelector(clickedSection);
     selectedSection.scrollIntoView({ behavior: "smooth" });
@@ -360,11 +404,17 @@ sectionNavigation.addEventListener("click", navigateSections);
 
 //Handle when section-navigation appears  viewport
 function navigationVisibility() {
-  const targetPosition = window.innerHeight;
-  if (window.scrollY > targetPosition) {
-    sectionNavigation.classList.add("show");
+  if (userSetting.navigationBullets) {
+    sectionNavigation.style.display = "block";
+    const targetPosition = window.innerHeight;
+    if (window.scrollY > targetPosition) {
+      sectionNavigation.classList.add("show");
+    } else {
+      sectionNavigation.classList.remove("show");
+    }
   } else {
     sectionNavigation.classList.remove("show");
+    sectionNavigation.style.display = "none";
   }
 }
 

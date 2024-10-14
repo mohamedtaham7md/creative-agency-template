@@ -42,10 +42,16 @@
             </label>
           </div>
         </div>
-        <div class="background-setting">
+        <div class="boolean-setting background-setting">
           <h4>random background</h4>
-          <button class="background-setting-yes">yes</button>
-          <button class="background-setting-no">no</button>
+          <button class="background-setting-yes background">yes</button>
+          <button class="background-setting-no background">no</button>
+        </div>
+
+        <div class="boolean-setting bullets-setting">
+          <h4>show bullets</h4>
+          <button class="bullets-setting-yes bullets">yes</button>
+          <button class="bullets-setting-no bullets ">no</button>
         </div>
       </div>
     </div>
@@ -65,10 +71,11 @@
         <nav id="main-nav">
           <ul>
             <span>x</span>
-            <li><a href="index.html" class="active">About</a></li>
-            <li><a href="#">services</a></li>
-            <li><a href="#">products</a></li>
-            <li><a href="#">contact</a></li>
+            <li><a data-section=".about-us" class="active section">About</a></li>
+            <li><a data-section=".our-gallery" class="section">gallery</a></li>
+            <li><a data-section=".timeline" class="section">timeline</a></li>
+            <li><a data-section=".our-features" class="section">features</a></li>
+            <li><a data-section=".testimonials" class="section">testimonials</a></li>
           </ul>
         </nav>
         <div class="setting-icon-container">
@@ -340,19 +347,19 @@
 
     <div id="section-navigation">
       <div class="section" data-section=".about-us">
-        <div class="section-tooltip">about-us</div>
+        <div class="section-tooltip">about us</div>
       </div>
       <div class="section" data-section=".our-skills">
-        <div class="section-tooltip">our-skills</div>
+        <div class="section-tooltip">skills</div>
       </div>
       <div class="section" data-section=".our-gallery">
-        <div class="section-tooltip">our-gallery</div>
+        <div class="section-tooltip">gallery</div>
       </div>
       <div class="section" data-section=".timeline">
         <div class="section-tooltip">timeline</div>
       </div>
       <div class="section" data-section=".our-features">
-        <div class="section-tooltip">our-features</div>
+        <div class="section-tooltip">features</div>
       </div>
       <div class="section" data-section=".testimonials">
         <div class="section-tooltip">testimonials</div>

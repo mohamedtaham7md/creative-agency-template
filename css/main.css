@@ -188,8 +188,8 @@ a {
 
 /*Color Setting*/
 
-/*background-setting*/
-#setting-box .background-setting button {
+/*boolean-setting*/
+#setting-box .boolean-setting button {
   width: 4.063rem; /*65px*/
   font-size: 1.25rem; /*20px*/
   padding: 5px 0px;
@@ -202,7 +202,7 @@ a {
   cursor: pointer;
 }
 
-#setting-box .background-setting button.active {
+#setting-box .boolean-setting button.active {
   opacity: 1;
 }
 
@@ -1086,7 +1086,7 @@ main section.testimonials .testimonials-box .person-info h3 {
   }
   /*color settings*/
   /*background setting*/
-  #setting-box .background-setting button {
+  #setting-box .boolean-setting button {
     width: 3.125rem; /*50px*/
     font-size: 0.9rem;
     padding: 2px 0px;
