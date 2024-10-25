@@ -206,6 +206,17 @@ a {
   opacity: 1;
 }
 
+#setting-box .reset-options {
+  width: 100%;
+  background: var(--main-color);
+  border: none;
+  padding: 20px 0;
+  text-transform: capitalize;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
 #section-navigation {
   display: none;
 }
@@ -1092,6 +1103,13 @@ main section.testimonials .testimonials-box .person-info h3 {
     padding: 2px 0px;
   }
   /*background setting*/
+
+  /*reset options*/
+  #setting-box .reset-options {
+    padding: 10px 0;
+    font-size: 1rem;
+  }
+  /*reset options*/
 
   /*about us*/
   main .about-us .about-us-text {

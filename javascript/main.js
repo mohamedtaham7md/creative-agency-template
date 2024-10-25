@@ -112,7 +112,7 @@ function changeBackground() {
       console.error(reason);
     });
 }
-let BackgroundIntervalId;
+let BackgroundIntervalId = null;
 function setRandomBackground(random = true) {
   if (random === true) {
     BackgroundIntervalId = setInterval(() => changeBackground(), 10000);
@@ -189,7 +189,8 @@ function setSettings(event) {
         userSetting.randomBackground = false;
       }
     }
-  } else if (
+  } //show navigation bullets settings
+  else if (
     event.target instanceof HTMLButtonElement &&
     event.target.classList.contains("bullets")
   ) {
@@ -207,6 +208,15 @@ function setSettings(event) {
         navigationVisibility();
       }
     }
+  } else if (
+    event.target instanceof HTMLButtonElement &&
+    event.target.classList.contains("reset-options")
+  ) {
+    userSetting.mainColor = "#f59723";
+    userSetting.navigationBullets = true;
+    userSetting.randomBackground = true;
+    updateLocalStorage();
+    window.location.reload();
   }
   updateLocalStorage(userSettingKey, userSetting);
 }
