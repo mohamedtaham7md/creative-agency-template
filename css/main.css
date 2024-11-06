@@ -855,6 +855,126 @@ main section.testimonials .testimonials-box .person-info h3 {
   margin: 15px 0 10px 0;
 }
 
+/*Contact section*/
+main section.contact {
+  padding: var(--main-padding) 0;
+  background-image: url("../assets/images/contact.png");
+  background-size: cover;
+  background-position: 50%;
+  position: relative;
+}
+
+main section.contact .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.6);
+}
+
+main section.contact .container {
+  position: relative;
+  z-index: 1;
+}
+
+main section.contact h2 {
+  text-align: center;
+}
+
+main section.contact form {
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+main section.contact form fieldset {
+  border: none;
+  width: 100%;
+}
+
+main section.contact form .form-group {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  gap: 3px;
+  margin-bottom: 10px;
+}
+
+main section.contact form input[type="number"]::-webkit-inner-spin-button,
+main section.contact form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+main section.contact form input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+  -webkit-appearance: none;
+}
+
+main section.contact form input[type="number"]::-ms-clear,
+main section.contact form input[type="number"]::-ms-reveal {
+  display: none;
+  width: 0;
+  height: 0;
+}
+
+main section.contact form label {
+  text-transform: capitalize;
+}
+
+main section.contact form input,
+main section.contact form textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  padding: 5px;
+  background-color: rgba(218, 218, 218, 0.19);
+}
+
+main section.contact form input:focus,
+main section.contact form textarea:focus {
+  outline: 1px solid var(--main-color);
+}
+
+main section.contact form button[type="submit"] {
+  width: 100%;
+  background-color: var(--main-color);
+  border: none;
+  padding: 10px 0;
+  color: white;
+  font-weight: bold;
+  text-transform: capitalize;
+  box-shadow: 5px 5px 10px var(--main-color);
+  position: relative;
+  transition: 1s;
+}
+
+main section.contact form button[type="submit"]::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 0;
+  top: 0;
+  left: 0;
+  background-color: white;
+  z-index: 0;
+  transition: 1s;
+}
+main section.contact form button[type="submit"] span {
+  position: relative;
+  z-index: 1;
+}
+
+main section.contact form button[type="submit"]:hover::before {
+  height: 100%;
+}
+main section.contact form button[type="submit"]:hover {
+  color: var(--main-color);
+}
+
 @media (min-width: 410px) {
   /*gallery popup box*/
   #popup-box {
@@ -1203,6 +1323,17 @@ main section.testimonials .testimonials-box .person-info h3 {
 
   #section-navigation .section:hover .section-tooltip {
     display: block;
+  }
+
+  /*Contact section*/
+
+  main section.contact form {
+    flex-direction: row;
+  }
+
+  main section.contact form .form-group {
+    width: 100%;
+    margin: 20px 0;
   }
 }
 
