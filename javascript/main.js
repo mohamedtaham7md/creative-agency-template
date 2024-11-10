@@ -415,7 +415,7 @@ sectionNavigation.addEventListener("click", navigateSections);
 //Handle when section-navigation appears  viewport
 function navigationVisibility() {
   if (userSetting.navigationBullets) {
-    sectionNavigation.style.display = "block";
+    sectionNavigation.classList.add("visible");
     const targetPosition = window.innerHeight;
     if (window.scrollY > targetPosition) {
       sectionNavigation.classList.add("show");
@@ -424,7 +424,7 @@ function navigationVisibility() {
     }
   } else {
     sectionNavigation.classList.remove("show");
-    sectionNavigation.style.display = "none";
+    sectionNavigation.classList.remove("visible");
   }
 }
 

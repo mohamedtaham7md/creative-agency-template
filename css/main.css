@@ -206,6 +206,10 @@ a {
   opacity: 1;
 }
 
+#setting-box .boolean-setting.bullets-setting {
+  display: none;
+}
+
 #setting-box .reset-options {
   width: 100%;
   background: var(--main-color);
@@ -1224,6 +1228,12 @@ main section.contact form button[type="submit"]:hover {
   }
   /*background setting*/
 
+  /*bullets-settings*/
+  #setting-box .boolean-setting.bullets-setting {
+    display: block;
+  }
+  /*bullets-settings*/
+
   /*reset options*/
   #setting-box .reset-options {
     padding: 10px 0;
@@ -1281,6 +1291,10 @@ main section.contact form button[type="submit"]:hover {
 
   #section-navigation.show {
     right: 0.313rem;
+  }
+
+  #section-navigation.visible {
+    display: block;
   }
 
   #section-navigation .section {
